@@ -21,7 +21,7 @@
     </script>
 </head>
 <body class="dark:bg-gray-900 dark:text-white">
-  <div class="container mx-auto text-center">
+  <div class="container mx-auto text-center" id="content">
     {% include 'includes/nav.html' %}
     {% include 'includes/messages.html' %}
 
@@ -30,6 +30,11 @@
 
   <!-- HTMX CDN -->
   <script src="https://unpkg.com/htmx.org@1.1.0"></script> 
+  <script>
+    document.body.addEventListener('htmx:configRequest', (e) => {
+      e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+      })
+  </script>
 
   <script src="{% static 'js/base.js' %}"></script>
   <script src="{% static 'node_modules/flowbite/dist/flowbite.js' %}"></script>

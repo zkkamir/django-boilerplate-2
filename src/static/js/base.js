@@ -1,8 +1,3 @@
-// HTMX CSRF in the headers
-document.body.addEventListener('htmx:configRequest', (e) => {
-    e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
-    });
-
 // Dark mode stuff
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
